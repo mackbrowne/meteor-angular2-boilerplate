@@ -22,3 +22,4 @@ hwillson:stub-collections
 dispatch:mocha-phantomjs
 shell-server
 accounts-password
+tmeasday:publish-counts
