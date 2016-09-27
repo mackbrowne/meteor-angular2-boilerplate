@@ -39,6 +39,7 @@ export class PartiesListComponent implements OnInit, OnDestroy {
   autorunSub: Subscription;
   location: Subject<string> = new Subject<string>();
   user: Meteor.User;
+  imagesSubs: Subscription;
 
   constructor(
     private paginationService: PaginationService
@@ -88,6 +89,8 @@ export class PartiesListComponent implements OnInit, OnDestroy {
       this.partiesSize = Counts.get('numberOfParties');
       this.paginationService.setTotalItems(this.paginationService.defaultId, this.partiesSize);
     });
+
+    this.imagesSubs = MeteorObservable.subscribe('images').zone().subscribe();
   }
 
   removeParty(party: Party): void {
@@ -115,5 +118,6 @@ export class PartiesListComponent implements OnInit, OnDestroy {
     this.partiesSub.unsubscribe();
     this.optionsSub.unsubscribe();
     this.autorunSub.unsubscribe();
+    this.imagesSubs.unsubscribe();
   }
 }
