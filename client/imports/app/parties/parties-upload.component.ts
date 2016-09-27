@@ -15,6 +15,7 @@ import {Thumbs} from "../../../../both/collections/images.collection";
 export class PartiesUploadComponent implements OnInit {
   fileIsOver: boolean = false;
   uploading: boolean = false;
+  filesArray: string[] = [];
   files: Subject<string[]> = new Subject<string[]>();
   thumbsSubscription: Subscription;
   thumbs: ObservableCursor<Thumb>;
@@ -49,12 +50,18 @@ export class PartiesUploadComponent implements OnInit {
     this.uploading = true;
 
     upload(file)
-      .then(() => {
+      .then((result) => {
         this.uploading = false;
+        this.addFile(result);
       })
       .catch((error) => {
         this.uploading = false;
         console.log(`Something went wrong!`, error);
       });
+  }
+
+  addFile(file) {
+    this.filesArray.push(file._id);
+    this.files.next(this.filesArray);
   }
 }
