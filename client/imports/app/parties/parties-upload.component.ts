@@ -66,4 +66,9 @@ export class PartiesUploadComponent implements OnInit {
     this.files.next(this.filesArray);
     this.onFile.emit(file._id);
   }
+
+  reset() {
+    this.filesArray = [];
+    this.files.next(this.filesArray);
+  }
 }
