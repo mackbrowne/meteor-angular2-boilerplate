@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 import template from './parties-upload.component.html';
 
@@ -19,6 +19,7 @@ export class PartiesUploadComponent implements OnInit {
   files: Subject<string[]> = new Subject<string[]>();
   thumbsSubscription: Subscription;
   thumbs: ObservableCursor<Thumb>;
+  @Output() onFile: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
@@ -63,5 +64,6 @@ export class PartiesUploadComponent implements OnInit {
   addFile(file) {
     this.filesArray.push(file._id);
     this.files.next(this.filesArray);
+    this.onFile.emit(file._id);
   }
 }
