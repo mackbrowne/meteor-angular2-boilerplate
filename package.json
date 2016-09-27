@@ -31,6 +31,7 @@
     "@angular2-material/input": "2.0.0-alpha.8-2",
     "@angular2-material/list": "2.0.0-alpha.8-2",
     "@angular2-material/toolbar": "2.0.0-alpha.8-2",
+    "angular2-file-drop": "github:dotansimha/angular2-file-drop#a3569f1abdb6c61739d93456758479901bc41557",
     "angular2-google-maps": "0.15.0",
     "angular2-meteor": "0.7.0",
     "angular2-meteor-accounts-ui": "0.8.0",
