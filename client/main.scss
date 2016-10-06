@@ -38,6 +38,13 @@ body {
     top: 17px;
     right: 17px;
   }
+
+  .login-buttons .content-container {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    left: initial;
+  }
 }
 
 @import "./imports/parties/parties-list.component";
